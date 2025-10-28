@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base tweaks */
+@layer base {
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-gray-900;
+  }
+}
+
+/* Reusable UI atoms */
+@layer components {
+  .container-outer {
+    @apply mx-auto w-full max-w-container px-4;
+  }
+
+  .badge-sm {
+    @apply inline-flex items-center rounded-full border px-1.5 py-0.5 text-[10px] font-medium;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition active:scale-95;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-500;
+  }
+
+  .btn-outline {
+    @apply btn border border-gray-300 bg-white hover:bg-gray-50;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium;
+  }
+
+  .badge-new {
+    @apply badge border-brand-200 text-brand-700 bg-brand-50;
+  }
+
+  .card {
+    @apply rounded-2xl border bg-white p-5 shadow-card transition hover:shadow-hover;
+  }
+
+  .card-title {
+    @apply text-lg font-semibold;
+  }
+
+  .card-price {
+    @apply mt-1 text-sm text-gray-600;
+  }
+
+  .nav-link {
+    @apply px-3 py-2 rounded-lg text-sm font-medium hover:bg-gray-100;
+  }
+
+  .nav-link--active {
+    @apply bg-gray-900 text-white hover:bg-gray-900;
+  }
+}
