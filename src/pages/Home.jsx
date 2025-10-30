@@ -146,7 +146,7 @@ function CategoryTiles() {
   ];
 
   return (
-    <section>
+    <section className="px-8">
       <h2 className="mb-3 text-xl font-semibold">Shop by Category</h2>
       <ul className="grid gap-4 sm:grid-cols-3">
         {tiles.map((t) => (
@@ -183,7 +183,7 @@ function CategoryTiles() {
 
 function FeaturedRow({ title, to, items, loading }) {
   return (
-    <section>
+    <section className="px-8">
       <div className="mb-3 flex items-center justify-between">
         <h2 className="text-xl font-semibold">{title}</h2>
         <Link
