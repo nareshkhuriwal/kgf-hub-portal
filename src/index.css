@@ -70,6 +70,14 @@
     @apply bg-gray-900 text-white hover:bg-gray-900;
   }
 
+  .size-pill {
+    @apply inline-flex items-center justify-center h-9 px-3 rounded-full border text-xs bg-white;
+  }
+
+  .size-pill-active {
+    @apply bg-black text-white border-black;
+  }
+
   @keyframes bump {
     0% {
       transform: scale(1);

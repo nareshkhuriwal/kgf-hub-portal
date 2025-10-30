@@ -223,10 +223,10 @@
         "32",
         "34"
       ],
-      "thumbnail": "/img/women/mom-jeans-1.jpg",
+      "thumbnail": "/img/women/floral-dress-1.jpg",
       "images": [
-        "/img/women/mom-jeans-1.jpg",
-        "/img/women/mom-jeans-2.jpg"
+        "/img/women/floral-dress-1.jpg",
+        "/img/women/floral-dress-1.jpg"
       ],
       "rating": {
         "avg": 4.5,
@@ -273,10 +273,10 @@
         "M",
         "L"
       ],
-      "thumbnail": "/img/women/ribbed-crop-1.jpg",
+      "thumbnail": "/img/women/floral-dress-1.jpg",
       "images": [
-        "/img/women/ribbed-crop-1.jpg",
-        "/img/women/ribbed-crop-2.jpg"
+        "/img/women/floral-dress-1.jpg",
+        "/img/women/floral-dress-1.jpg"
       ],
       "rating": {
         "avg": 4.2,
@@ -372,10 +372,10 @@
         "XL",
         "XXL"
       ],
-      "thumbnail": "/img/women/kurta-set-1.jpg",
+      "thumbnail": "/img/women/kurta-set-12.jpg",
       "images": [
-        "/img/women/kurta-set-1.jpg",
-        "/img/women/kurta-set-2.jpg"
+        "/img/women/kurta-set-12.jpg",
+        "/img/women/kurta-set-12.jpg"
       ],
       "rating": {
         "avg": 4.4,
@@ -543,7 +543,7 @@
     },
     {
       "id": "1012",
-      "name": "Boxy Graphic Tee",
+      "name": "kurta-set-1",
       "brand": "KGF Street",
       "gender": "women",
       "category": "t-shirt",
@@ -568,10 +568,10 @@
         "L",
         "XL"
       ],
-      "thumbnail": "/img/women/boxy-tee-1.jpg",
+      "thumbnail": "/img/women/kurta-set-1.jpg",
       "images": [
-        "/img/women/boxy-tee-1.jpg",
-        "/img/women/boxy-tee-2.jpg"
+        "/img/women/kurta-set-1.jpg",
+        "/img/women/kurta-set-1.jpg"
       ],
       "rating": {
         "avg": 4,
@@ -696,7 +696,7 @@
     },
     {
       "id": "1015",
-      "name": "Women’s Zip Hoodie",
+      "name": "Nav kurta",
       "brand": "KGF Cozy",
       "gender": "women",
       "category": "sweatshirt",
@@ -721,10 +721,10 @@
         "L",
         "XL"
       ],
-      "thumbnail": "/img/women/zip-hoodie-1.jpg",
+      "thumbnail": "/img/women/Nav kurta.jpg",
       "images": [
-        "/img/women/zip-hoodie-1.jpg",
-        "/img/women/zip-hoodie-2.jpg"
+        "/img/women/Nav kurta.jpg",
+        "/img/women/Nav kurta.jpg.jpg"
       ],
       "rating": {
         "avg": 4.3,
@@ -806,6 +806,31 @@
       "qty": 1,
       "size": "XS",
       "color": "White"
+    },
+    {
+      "id": "5ff6",
+      "productId": "1008",
+      "name": "KURTA SET with Dupatta",
+      "price": 2199,
+      "qty": 1,
+      "size": "XL",
+      "color": "Aubergine"
+    },
+    {
+      "id": "2fff",
+      "productId": "1007",
+      "name": "Floral Summer Dress",
+      "price": 1499,
+      "qty": 1
+    },
+    {
+      "id": "8dac",
+      "productId": "1006",
+      "name": "Ribbed Crop Top",
+      "price": 599,
+      "qty": 1,
+      "size": "XS",
+      "color": "Black"
     }
   ]
 }
