@@ -1,6 +1,6 @@
-const API = "http://localhost:4000";
+// src/lib/api.js
+const API = import.meta.env.VITE_API_BASE || "http://localhost:4000";
 
-// small fetch wrapper
 async function j(method, path, body) {
   const res = await fetch(`${API}${path}`, {
     method,
@@ -11,17 +11,39 @@ async function j(method, path, body) {
   return res.json();
 }
 
-export const getProducts = () => j("GET", "/products");
-export const getCart     = () => j("GET", "/cart");
+/* ===== CLOTHING PRODUCTS ===== */
+export const getClothingProducts = () => j("GET", "/clothingProducts");
+export const getClothingProduct  = (id) => j("GET", `/clothingProducts/${id}`);
 
-// find cart item by productId (json-server filtering)
-export const findCartItemByProduct = async (productId) => {
-  const res = await fetch(`${API}/cart?productId=${encodeURIComponent(productId)}`);
-  if (!res.ok) throw new Error("GET /cart?productId failed");
-  const arr = await res.json();
-  return arr[0] || null;
-};
+// TEMP alias so any legacy imports keep working
+export const getProducts = getClothingProducts;
 
-export const addCartItem    = (item)           => j("POST", "/cart", item);              // {productId,name,price,qty}
-export const patchCartItem  = (id, payload)    => j("PATCH", `/cart/${id}`, payload);    // e.g. {qty: 2}
-export const deleteCartItem = (id)             => j("DELETE", `/cart/${id}`);
+export async function searchClothingProducts(q) {
+  const all = await getClothingProducts();
+  const term = q.trim().toLowerCase();
+  if (!term) return [];
+  return all.filter(p =>
+    p.name.toLowerCase().includes(term) ||
+    (p.brand||"").toLowerCase().includes(term) ||
+    (p.category||"").toLowerCase().includes(term)
+  ).slice(0, 12);
+}
+
+/* ===== CART ===== */
+export const getCart        = () => j("GET", "/cart");
+export const addCartItem    = (item) => j("POST", "/cart", item);
+export const patchCartItem  = (id, payload) => j("PATCH", `/cart/${id}`, payload);
+export const deleteCartItem = (id) => j("DELETE", `/cart/${id}`);
+
+export async function findCartItemByProduct(productId, size, color) {
+  const list = await getCart();
+  return (
+    list.find(
+      (x) =>
+        x.productId === productId &&
+        (size ? x.size === size : true) &&
+        (color ? x.color === color : true)
+    ) || null
+  );
+}
+
