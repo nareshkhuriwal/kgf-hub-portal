@@ -202,7 +202,7 @@
     },
     {
       "id": "1005",
-      "name": "High-Rise Mom Jeans",
+      "name": "Viscose Kurta",
       "brand": "DenimForge",
       "gender": "women",
       "category": "jeans",
@@ -223,10 +223,10 @@
         "32",
         "34"
       ],
-      "thumbnail": "/img/women/floral-dress-1.jpg",
+      "thumbnail": "/img/women/Viscose Kurta.jpg",
       "images": [
-        "/img/women/floral-dress-1.jpg",
-        "/img/women/floral-dress-1.jpg"
+        "/img/women/Viscose Kurta.jpg",
+        "/img/women/Viscose Kurta.jpg"
       ],
       "rating": {
         "avg": 4.5,
@@ -249,7 +249,7 @@
     },
     {
       "id": "1006",
-      "name": "Ribbed Crop Top",
+      "name": "Elysia Navy printed Kurta with Dupatta",
       "brand": "KGF Essentials",
       "gender": "women",
       "category": "top",
@@ -273,10 +273,10 @@
         "M",
         "L"
       ],
-      "thumbnail": "/img/women/floral-dress-1.jpg",
+      "thumbnail": "/img/women/Elysia Navy printed Kurta with Dupatta.jpg",
       "images": [
-        "/img/women/floral-dress-1.jpg",
-        "/img/women/floral-dress-1.jpg"
+        "/img/women/Elysia Navy printed Kurta with Dupatta.jpg",
+        "/img/women/Elysia Navy printed Kurta with Dupatta.jpg"
       ],
       "rating": {
         "avg": 4.2,
@@ -298,7 +298,7 @@
     },
     {
       "id": "1007",
-      "name": "Floral Summer Dress",
+      "name": "Rav kurta",
       "brand": "KGF Studio",
       "gender": "women",
       "category": "dress",
@@ -323,11 +323,11 @@
         "L",
         "XL"
       ],
-      "thumbnail": "/img/women/floral-dress-1.jpg",
+      "thumbnail": "/img/women/Rav kurta.jpg",
       "images": [
-        "/img/women/floral-dress-1.jpg",
-        "/img/women/floral-dress-2.jpg",
-        "/img/women/floral-dress-3.jpg"
+        "/img/women/Rav kurta",
+        "/img/women/Rav kurta",
+        "/img/women/Rav kurta"
       ],
       "rating": {
         "avg": 4.6,
