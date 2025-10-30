@@ -17,6 +17,8 @@ export default function MobileFiltersSheet(props) {
     sort, setSort,
     priceRange,
     onClearAll,
+    // NEW: optionally hide Gender facet (e.g., when locked by URL)
+    hideGender = false,
   } = props;
 
   return (
@@ -39,16 +41,18 @@ export default function MobileFiltersSheet(props) {
         </div>
 
         <div className="overflow-y-auto p-4">
-          <Section title="Gender">
-            <div className="grid gap-2">
-              {["all", "men", "women", "kids"].map((g) => (
-                <label key={g} className="flex items-center gap-2 text-sm">
-                  <input type="radio" name="m-gender" value={g} checked={gender === g} onChange={(e) => setGender(e.target.value)} />
-                  <span className="capitalize">{g}</span>
-                </label>
-              ))}
-            </div>
-          </Section>
+          {!hideGender && (
+            <Section title="Gender">
+              <div className="grid gap-2">
+                {["all", "men", "women", "kids"].map((g) => (
+                  <label key={g} className="flex items-center gap-2 text-sm">
+                    <input type="radio" name="m-gender" value={g} checked={gender === g} onChange={(e) => setGender(e.target.value)} />
+                    <span className="capitalize">{g}</span>
+                  </label>
+                ))}
+              </div>
+            </Section>
+          )}
 
           <Section title="Category">
             <Checklist items={subCounts} selected={subs} onToggle={(v) => toggle(v, subs, setSubs)} />

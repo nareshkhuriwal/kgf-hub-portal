@@ -1,5 +1,5 @@
 // src/pages/Products.jsx
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getClothingProducts } from "../lib/api";
 import { useCart } from "../context/CartContext";
@@ -28,11 +28,16 @@ export default function Products() {
   const [discount, setDiscount] = useState(0);          // single threshold
   const [sort, setSort] = useState("relevance");
 
+  // Track if gender came from initial URL (lock & hide Gender facet)
+  const lockedGenderRef = useRef({ locked: false, value: "all" });
+  const firstLoadRef = useRef(true); // ◀️ NEW: only lock on the first load
+
   // Parse current URL into state
   useEffect(() => {
     const p = new URLSearchParams(loc.search);
+    const urlCat = (p.get("cat") || "all").toLowerCase();
     setQ(p.get("search") || "");
-    setGender((p.get("cat") || "all").toLowerCase());
+    setGender(urlCat);
     setSubs(parseCSV(p.get("sub")));
     setSizes(parseCSV(p.get("size")));
     setColors(parseCSV(p.get("color")));
@@ -42,6 +47,15 @@ export default function Products() {
     setRating(Number(p.get("rating") || 0));
     setDiscount(Number(p.get("discount") || 0));
     setSort(p.get("sort") || "relevance");
+
+    // lock gender if URL provided a specific category at FIRST load only
+    if (firstLoadRef.current) {
+      const isLockable = ["men", "women", "kids"].includes(urlCat);
+      if (isLockable) {
+        lockedGenderRef.current = { locked: true, value: urlCat };
+      }
+      firstLoadRef.current = false; // ensure it runs just once
+    }
   }, [loc.search]);
 
   // 🔒 Sanitize size selections when gender changes
@@ -115,7 +129,7 @@ export default function Products() {
 
       const okSizes = ignore === "size" || sizes.length === 0
         ? true
-        : (p.sizes || []).some((s) => sizes.includes(s));
+        : (p.sizes || []).some((s) => sizes.includes(String(s)));
 
       const okColors = ignore === "color" || colors.length === 0
         ? true
@@ -186,7 +200,7 @@ export default function Products() {
     };
   }, [items, q, gender, subs, sizes, colors, brands, priceMin, priceMax, rating, discount]);
 
-  // 🔽 NEW: filter & sort size options by gender context
+  // 🔽 filter & sort size options by gender context
   const sizeCountsFiltered = useMemo(() => {
     const LETTERS = ["XS", "S", "M", "L", "XL", "XXL"];
     const KIDS_RE = /^(\d{1,2})-(\d{1,2})Y$/i;
@@ -308,8 +322,10 @@ export default function Products() {
   };
 
   const clearAll = () => {
+    // Respect locked gender
+    const { locked, value } = lockedGenderRef.current;
     setQ("");
-    setGender("all");
+    setGender(locked ? value : "all");
     setSubs([]);
     setSizes([]);
     setColors([]);
@@ -320,6 +336,8 @@ export default function Products() {
     setDiscount(0);
     setSort("relevance");
   };
+
+  const hideGender = lockedGenderRef.current.locked;
 
   return (
     <section className="space-y-4">
@@ -342,6 +360,7 @@ export default function Products() {
         rating={rating} setRating={setRating}
         discount={discount} setDiscount={setDiscount}
         onClearAll={clearAll}
+        hideGender={hideGender}
       />
 
       {/* Mobile trigger */}
@@ -360,7 +379,7 @@ export default function Products() {
           <SidebarFilters
             // counts
             subCounts={counts.subCounts}
-            sizeCounts={sizeCountsFiltered}          /* 🔽 filtered + sorted sizes */
+            sizeCounts={sizeCountsFiltered}
             colorCounts={counts.colorCounts}
             brandCounts={counts.brandCounts}
             // selections
@@ -376,6 +395,8 @@ export default function Products() {
             sort={sort} setSort={setSort}
             priceRange={priceRange}
             onClearAll={clearAll}
+            // NEW: hide gender facet when locked by URL cat
+            hideGender={hideGender}
           />
         </div>
 
@@ -456,7 +477,7 @@ export default function Products() {
         onClose={() => setMobileOpen(false)}
         // counts
         subCounts={counts.subCounts}
-        sizeCounts={sizeCountsFiltered}          // 🔽 filtered + sorted sizes
+        sizeCounts={sizeCountsFiltered}
         colorCounts={counts.colorCounts}
         brandCounts={counts.brandCounts}
         // selections
@@ -472,6 +493,8 @@ export default function Products() {
         sort={sort} setSort={setSort}
         priceRange={priceRange}
         onClearAll={() => { clearAll(); setMobileOpen(false); }}
+        // NEW: hide gender in mobile panel too
+        hideGender={hideGender}
       />
     </section>
   );
@@ -482,7 +505,12 @@ function AppliedChips(props) {
   const push = (label, onClear) => chips.push({ label, onClear });
 
   if (props.q) push(`Search: “${props.q}”`, () => props.setQ(""));
-  if (props.gender && props.gender !== "all") push(`Gender: ${cap(props.gender)}`, () => props.setGender("all"));
+
+  // Only show Gender chip when it's NOT locked by initial URL
+  if (!props.hideGender && props.gender && props.gender !== "all") {
+    push(`Gender: ${cap(props.gender)}`, () => props.setGender("all"));
+  }
+
   props.subs.forEach((v) => push(`Category: ${v}`, () => props.setSubs(props.subs.filter((x) => x !== v))));
   props.sizes.forEach((v) => push(`Size: ${v}`, () => props.setSizes(props.sizes.filter((x) => x !== v))));
   props.colors.forEach((v) => push(`Color: ${v}`, () => props.setColors(props.colors.filter((x) => x !== v))));

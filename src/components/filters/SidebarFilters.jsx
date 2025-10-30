@@ -21,6 +21,8 @@ export default function SidebarFilters({
   sort, setSort,
   priceRange = { min: 0, max: 0 },
   onClearAll,
+  // NEW: hide Gender facet (when gender locked via URL)
+  hideGender = false,
 }) {
   return (
     <aside className="sticky top-20 space-y-4">
@@ -31,22 +33,24 @@ export default function SidebarFilters({
         </button>
       </div>
 
-      <Group title="Gender">
-        <div className="grid gap-2">
-          {["all", "men", "women", "kids"].map((g) => (
-            <label key={g} className="flex items-center gap-2 text-sm">
-              <input
-                type="radio"
-                name="gender"
-                value={g}
-                checked={gender === g}
-                onChange={(e) => setGender(e.target.value)}
-              />
-              <span className="capitalize">{g}</span>
-            </label>
-          ))}
-        </div>
-      </Group>
+      {!hideGender && (
+        <Group title="Gender">
+          <div className="grid gap-2">
+            {["all", "men", "women", "kids"].map((g) => (
+              <label key={g} className="flex items-center gap-2 text-sm">
+                <input
+                  type="radio"
+                  name="gender"
+                  value={g}
+                  checked={gender === g}
+                  onChange={(e) => setGender(e.target.value)}
+                />
+                <span className="capitalize">{g}</span>
+              </label>
+            ))}
+          </div>
+        </Group>
+      )}
 
       <Group title="Category" clear={() => setSubs([])} hasClear={subs.length > 0}>
         <Checklist
@@ -252,7 +256,6 @@ function sizeComparator(a, b) {
   if (typeof ia === "number" && typeof ib === "number") return ia - ib;
   return String(ia).localeCompare(String(ib));
 }
-
 
 function swatchColor(name) {
   const n = (name || "").toLowerCase();
