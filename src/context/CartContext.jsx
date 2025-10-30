@@ -34,18 +34,19 @@ export function CartProvider({ children }) {
   }, []);
 
   // Add to cart; if exists, qty++
-  const add = async ({ productId, name, price, qty = 1 }) => {
-    const existing = await findCartItemByProduct(productId);
+  const add = async ({ productId, name, price, qty = 1, size, color }) => {
+    const existing = await findCartItemByProduct(productId, size, color);
     if (existing) {
       const updated = await patchCartItem(existing.id, { qty: (existing.qty ?? 1) + qty });
       setItems((prev) => prev.map((it) => (it.id === existing.id ? updated : it)));
-      openCart(); // open drawer when adding
+      openCart();
       return;
     }
-    const created = await addCartItem({ productId, name, price, qty });
+    const created = await addCartItem({ productId, name, price, qty, size, color });
     setItems((prev) => [...prev, created]);
-    openCart(); // open drawer when adding
+    openCart();
   };
+
 
   const remove = async (id) => {
     await deleteCartItem(id);

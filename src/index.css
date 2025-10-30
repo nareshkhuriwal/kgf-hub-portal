@@ -69,4 +69,294 @@
   .nav-link--active {
     @apply bg-gray-900 text-white hover:bg-gray-900;
   }
+
+  .size-pill {
+    @apply inline-flex items-center justify-center h-9 px-3 rounded-full border text-xs bg-white;
+  }
+
+  .size-pill-active {
+    @apply bg-black text-white border-black;
+  }
+
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+
+    20% {
+      transform: scale(1.15);
+    }
+
+    60% {
+      transform: scale(0.98);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .badge-bump {
+    animation: bump 380ms ease-out;
+  }
+
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+
+    20% {
+      transform: scale(1.15);
+    }
+
+    60% {
+      transform: scale(0.98);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .badge-bump {
+    animation: bump 380ms ease-out;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadein {
+    animation: fadein .18s ease-out;
+  }
+
+  /* Optional nav-link base if not already present */
+  .nav-link {
+    color: #111827;
+    font-weight: 500;
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .nav-link--active {
+    text-underline-offset: 4px;
+    text-decoration: underline;
+  }
+
+  /* Active/hover underline like the reference */
+  .nav-underline-hover::after,
+  .nav-underline-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: transparent;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .2s ease, background-color .2s ease;
+  }
+
+  .nav-underline-hover:hover::after {
+    background: #1f2937;
+    /* slate-800 */
+    transform: scaleX(1);
+  }
+
+  .nav-underline-active::after {
+    background: #1f2937;
+    transform: scaleX(1);
+  }
+
+  /* Hide scrollbar for the mobile horizontal menu row */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Badge pulse (kept from earlier) */
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+
+    20% {
+      transform: scale(1.15);
+    }
+
+    60% {
+      transform: scale(0.98);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .badge-bump {
+    animation: bump 380ms ease-out;
+  }
+
+  /* Underline like the reference */
+  .nav-underline-hover::after,
+  .nav-underline-active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 1px;
+    background: transparent;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform .2s ease, background-color .2s ease;
+  }
+
+  .nav-underline-hover:hover::after {
+    background: #1f2937;
+    transform: scaleX(1);
+  }
+
+  .nav-underline-active::after {
+    background: #1f2937;
+    transform: scaleX(1);
+  }
+
+  /* Hide scrollbar for the mobile horizontal menu row */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Badge pulse */
+  @keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+
+    20% {
+      transform: scale(1.15);
+    }
+
+    60% {
+      transform: scale(0.98);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .badge-bump {
+    animation: bump 380ms ease-out;
+  }
+
+  /* Simple card helpers if not present */
+  .card {
+    @apply rounded-2xl border bg-white p-3 shadow-sm;
+  }
+
+  .card-title {
+    @apply text-[15px] font-medium;
+  }
+
+  .card-price {
+    @apply text-[15px];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-gray-900 px-4 py-2 text-white hover:bg-black;
+  }
+
+  /* Swatches & sizes */
+  .swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    outline: none;
+  }
+
+  .swatch-active {
+    box-shadow: 0 0 0 2px #111827;
+  }
+
+  .size-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 9999px;
+    border: 1px solid rgba(17, 24, 39, 0.18);
+    /* gray-800 alpha */
+    font-size: 12px;
+    letter-spacing: .06em;
+    background: #fff;
+  }
+
+  .size-pill:hover {
+    background: #f9fafb;
+  }
+
+  .size-pill-active {
+    border-color: #111827;
+    background: #111827;
+    color: #fff;
+  }
+
+  /* PDP swatches & sizes */
+  .swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .swatch-active {
+    box-shadow: 0 0 0 2px #111827;
+  }
+
+  .size-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 9999px;
+    border: 1px solid rgba(17, 24, 39, 0.18);
+    font-size: 12px;
+    letter-spacing: .06em;
+    background: #fff;
+  }
+
+  .size-pill:hover {
+    background: #f9fafb;
+  }
+
+  .size-pill-active {
+    border-color: #111827;
+    background: #111827;
+    color: #fff;
+  }
+
 }

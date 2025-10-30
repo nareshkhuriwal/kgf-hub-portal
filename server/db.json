@@ -1,517 +1,836 @@
 {
-  "products": [
+  "clothingProducts": [
     {
-      "id": "p01",
-      "name": "React Landing Template",
-      "slug": "react-landing-template",
-      "categoryId": "c-web",
-      "price": 12999,
-      "mrp": 15999,
-      "stock": 42,
-      "rating": 4.6,
-      "tags": [
-        "react",
-        "tailwind",
-        "vite"
-      ],
-      "thumbnail": "/images/products/react-landing.jpg",
-      "images": [
-        "/images/products/react-landing.jpg"
-      ],
-      "variants": [
+      "id": "1001",
+      "name": "Oversized Cotton Tee",
+      "brand": "KGF Basics",
+      "gender": "men",
+      "category": "t-shirt",
+      "subCategory": "oversized",
+      "price": 699,
+      "mrp": 999,
+      "discountPct": 30,
+      "colors": [
         {
-          "sku": "P01-STD",
-          "title": "Standard",
-          "price": 12999
+          "code": "#111827",
+          "name": "Charcoal"
         },
         {
-          "sku": "P01-PRO",
-          "title": "Pro + Sections",
-          "price": 14999
+          "code": "#F3F4F6",
+          "name": "Cloud"
         }
       ],
-      "shortDesc": "High-converting landing pages built with React + Tailwind.",
-      "createdAt": "2025-07-10T09:00:00.000Z"
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "thumbnail": "/img/men/oversized-tee-1.jpg",
+      "images": [
+        "/img/men/oversized-tee-1.jpg",
+        "/img/men/oversized-tee-2.jpg",
+        "/img/men/oversized-tee-3.jpg"
+      ],
+      "rating": {
+        "avg": 4.4,
+        "count": 214
+      },
+      "fabric": "100% Cotton, 180 GSM",
+      "fit": "Oversized",
+      "care": "Machine wash cold, wash dark colors separately",
+      "tags": [
+        "new",
+        "tee",
+        "cotton"
+      ],
+      "stock": {
+        "S": 12,
+        "M": 18,
+        "L": 22,
+        "XL": 15,
+        "XXL": 8
+      }
     },
     {
-      "id": "p02",
-      "name": "Tailwind Component Kit",
-      "slug": "tailwind-component-kit",
-      "categoryId": "c-ui",
-      "price": 5999,
-      "mrp": 7999,
-      "stock": 120,
-      "rating": 4.7,
-      "tags": [
-        "tailwind",
-        "ui",
-        "components"
-      ],
-      "thumbnail": "/images/products/tw-kit.jpg",
-      "images": [
-        "/images/products/tw-kit.jpg"
-      ],
-      "variants": [
+      "id": "1002",
+      "name": "Stretch Slim Jeans",
+      "brand": "DenimForge",
+      "gender": "men",
+      "category": "jeans",
+      "subCategory": "slim",
+      "price": 1499,
+      "mrp": 2499,
+      "discountPct": 40,
+      "colors": [
         {
-          "sku": "P02-BASE",
-          "title": "Base",
-          "price": 5999
+          "code": "#1F2937",
+          "name": "Dark Indigo"
         }
       ],
-      "shortDesc": "200+ production-ready UI pieces with Tailwind v3.",
-      "createdAt": "2025-07-12T09:00:00.000Z"
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "thumbnail": "/img/men/jeans-slim-1.jpg",
+      "images": [
+        "/img/men/jeans-slim-1.jpg",
+        "/img/men/jeans-slim-2.jpg"
+      ],
+      "rating": {
+        "avg": 4.2,
+        "count": 167
+      },
+      "fabric": "98% Cotton, 2% Elastane",
+      "fit": "Slim",
+      "care": "Machine wash cold, do not bleach",
+      "tags": [
+        "denim",
+        "bestseller"
+      ],
+      "stock": {
+        "28": 6,
+        "30": 10,
+        "32": 20,
+        "34": 16,
+        "36": 9,
+        "38": 5
+      }
     },
     {
-      "id": "p03",
-      "name": "Next.js SaaS Starter",
-      "slug": "nextjs-saas-starter",
-      "categoryId": "c-web",
-      "price": 24999,
-      "mrp": 29999,
-      "stock": 18,
-      "rating": 4.5,
-      "tags": [
-        "nextjs",
-        "auth",
-        "prisma"
-      ],
-      "thumbnail": "/images/products/next-saas.jpg",
-      "images": [
-        "/images/products/next-saas.jpg"
-      ],
-      "variants": [
+      "id": "1003",
+      "name": "Linen Blend Casual Shirt",
+      "brand": "KGF Studio",
+      "gender": "men",
+      "category": "shirt",
+      "subCategory": "casual",
+      "price": 1199,
+      "mrp": 1699,
+      "discountPct": 29,
+      "colors": [
         {
-          "sku": "P03-SAAS",
-          "title": "SaaS Starter",
-          "price": 24999
+          "code": "#D1FAE5",
+          "name": "Mint"
         },
         {
-          "sku": "P03-SAASPRO",
-          "title": "Pro (Billing + Emails)",
-          "price": 28999
+          "code": "#FEE2E2",
+          "name": "Blush"
         }
       ],
-      "shortDesc": "Auth, billing, dashboard—launch a SaaS fast.",
-      "createdAt": "2025-07-20T09:00:00.000Z"
-    },
-    {
-      "id": "p04",
-      "name": "Admin Dashboard (React)",
-      "slug": "react-admin-dashboard",
-      "categoryId": "c-admin",
-      "price": 14999,
-      "mrp": 17999,
-      "stock": 33,
-      "rating": 4.4,
-      "tags": [
-        "charts",
-        "tables",
-        "react"
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
       ],
-      "thumbnail": "/images/products/admin-react.jpg",
+      "thumbnail": "/img/men/linen-shirt-1.jpg",
       "images": [
-        "/images/products/admin-react.jpg"
+        "/img/men/linen-shirt-1.jpg",
+        "/img/men/linen-shirt-2.jpg"
       ],
-      "variants": [
-        {
-          "sku": "P04-STD",
-          "title": "Standard",
-          "price": 14999
-        }
-      ],
-      "shortDesc": "Analytics, tables, CRUD patterns built with React.",
-      "createdAt": "2025-08-01T09:00:00.000Z"
-    },
-    {
-      "id": "p05",
-      "name": "React Native Starter",
-      "slug": "react-native-starter",
-      "categoryId": "c-mobile",
-      "price": 17999,
-      "mrp": 21999,
-      "stock": 20,
-      "rating": 4.3,
+      "rating": {
+        "avg": 4.1,
+        "count": 88
+      },
+      "fabric": "55% Linen, 45% Cotton",
+      "fit": "Regular",
+      "care": "Gentle cycle, warm iron",
       "tags": [
-        "react-native",
-        "mobile"
+        "summer",
+        "linen"
       ],
-      "thumbnail": "/images/products/rn-starter.jpg",
-      "images": [
-        "/images/products/rn-starter.jpg"
-      ],
-      "variants": [
-        {
-          "sku": "P05-STD",
-          "title": "Standard",
-          "price": 17999
-        }
-      ],
-      "shortDesc": "iOS/Android starter with navigation & auth.",
-      "createdAt": "2025-08-05T09:00:00.000Z"
+      "stock": {
+        "S": 7,
+        "M": 12,
+        "L": 10,
+        "XL": 6
+      }
     },
     {
-      "id": "p06",
-      "name": "SEO Booster Pack",
-      "slug": "seo-booster-pack",
-      "categoryId": "c-seo",
-      "price": 4999,
-      "mrp": 6999,
-      "stock": 75,
-      "rating": 4.2,
+      "id": "1004",
+      "name": "Classic Polo Tee",
+      "brand": "KGF Sport",
+      "gender": "men",
+      "category": "t-shirt",
+      "subCategory": "polo",
+      "price": 849,
+      "mrp": 1299,
+      "discountPct": 35,
+      "colors": [
+        {
+          "code": "#2563EB",
+          "name": "Royal Blue"
+        },
+        {
+          "code": "#065F46",
+          "name": "Pine"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "thumbnail": "/img/men/polo-1.jpg",
+      "images": [
+        "/img/men/polo-1.jpg",
+        "/img/men/polo-2.jpg"
+      ],
+      "rating": {
+        "avg": 4.3,
+        "count": 132
+      },
+      "fabric": "Pique Cotton",
+      "fit": "Regular",
+      "care": "Machine wash cold",
       "tags": [
-        "seo",
-        "performance"
+        "polo",
+        "sport"
       ],
-      "thumbnail": "/images/products/seo-pack.jpg",
-      "images": [
-        "/images/products/seo-pack.jpg"
-      ],
-      "variants": [
-        {
-          "sku": "P06-STD",
-          "title": "Standard",
-          "price": 4999
-        }
-      ],
-      "shortDesc": "Meta presets, sitemap, robots, analytics hooks.",
-      "createdAt": "2025-08-07T09:00:00.000Z"
+      "stock": {
+        "S": 9,
+        "M": 14,
+        "L": 18,
+        "XL": 11
+      }
     },
     {
-      "id": "p07",
-      "name": "Auth UI Kit",
-      "slug": "auth-ui-kit",
-      "categoryId": "c-ui",
-      "price": 3999,
-      "mrp": 5499,
-      "stock": 112,
-      "rating": 4.6,
+      "id": "1005",
+      "name": "High-Rise Mom Jeans",
+      "brand": "DenimForge",
+      "gender": "women",
+      "category": "jeans",
+      "subCategory": "mom fit",
+      "price": 1699,
+      "mrp": 2799,
+      "discountPct": 39,
+      "colors": [
+        {
+          "code": "#93C5FD",
+          "name": "Light Blue"
+        }
+      ],
+      "sizes": [
+        "26",
+        "28",
+        "30",
+        "32",
+        "34"
+      ],
+      "thumbnail": "/img/women/floral-dress-1.jpg",
+      "images": [
+        "/img/women/floral-dress-1.jpg",
+        "/img/women/floral-dress-1.jpg"
+      ],
+      "rating": {
+        "avg": 4.5,
+        "count": 201
+      },
+      "fabric": "100% Cotton (Rigid)",
+      "fit": "Mom Fit",
+      "care": "Machine wash cold",
       "tags": [
-        "auth",
-        "ui",
-        "tailwind"
+        "denim",
+        "trending"
       ],
-      "thumbnail": "/images/products/auth-kit.jpg",
-      "images": [
-        "/images/products/auth-kit.jpg"
-      ],
-      "variants": [
-        {
-          "sku": "P07-STD",
-          "title": "Standard",
-          "price": 3999
-        }
-      ],
-      "shortDesc": "Sign in, MFA, reset—clean auth screens.",
-      "createdAt": "2025-08-09T09:00:00.000Z"
+      "stock": {
+        "26": 5,
+        "28": 12,
+        "30": 16,
+        "32": 9,
+        "34": 6
+      }
     },
     {
-      "id": "p08",
-      "name": "Email Templates (MJML)",
-      "slug": "email-templates-mjml",
-      "categoryId": "c-util",
-      "price": 2999,
-      "mrp": 4499,
-      "stock": 260,
-      "rating": 4.1,
+      "id": "1006",
+      "name": "Ribbed Crop Top",
+      "brand": "KGF Essentials",
+      "gender": "women",
+      "category": "top",
+      "subCategory": "crop",
+      "price": 599,
+      "mrp": 899,
+      "discountPct": 33,
+      "colors": [
+        {
+          "code": "#111827",
+          "name": "Black"
+        },
+        {
+          "code": "#F3F4F6",
+          "name": "White"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L"
+      ],
+      "thumbnail": "/img/women/floral-dress-1.jpg",
+      "images": [
+        "/img/women/floral-dress-1.jpg",
+        "/img/women/floral-dress-1.jpg"
+      ],
+      "rating": {
+        "avg": 4.2,
+        "count": 90
+      },
+      "fabric": "95% Cotton, 5% Elastane",
+      "fit": "Slim",
+      "care": "Machine wash cold, line dry",
       "tags": [
-        "email",
-        "mjml"
+        "new",
+        "basics"
       ],
-      "thumbnail": "/images/products/email-mjml.jpg",
-      "images": [
-        "/images/products/email-mjml.jpg"
-      ],
-      "variants": [
-        {
-          "sku": "P08-STD",
-          "title": "Standard",
-          "price": 2999
-        }
-      ],
-      "shortDesc": "Responsive email templates for onboarding & receipts.",
-      "createdAt": "2025-08-12T09:00:00.000Z"
+      "stock": {
+        "XS": 8,
+        "S": 14,
+        "M": 12,
+        "L": 7
+      }
     },
     {
-      "id": "p09",
-      "name": "Payments Starter (Stripe)",
-      "slug": "payments-starter-stripe",
-      "categoryId": "c-util",
-      "price": 10999,
-      "mrp": 13999,
-      "stock": 41,
-      "rating": 4.4,
+      "id": "1007",
+      "name": "Floral Summer Dress",
+      "brand": "KGF Studio",
+      "gender": "women",
+      "category": "dress",
+      "subCategory": "floral",
+      "price": 1499,
+      "mrp": 2299,
+      "discountPct": 35,
+      "colors": [
+        {
+          "code": "#FDE68A",
+          "name": "Sunflower"
+        },
+        {
+          "code": "#FECACA",
+          "name": "Rose"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "thumbnail": "/img/women/floral-dress-1.jpg",
+      "images": [
+        "/img/women/floral-dress-1.jpg",
+        "/img/women/floral-dress-2.jpg",
+        "/img/women/floral-dress-3.jpg"
+      ],
+      "rating": {
+        "avg": 4.6,
+        "count": 154
+      },
+      "fabric": "Viscose",
+      "fit": "A-line",
+      "care": "Hand wash recommended",
       "tags": [
-        "payments",
-        "stripe",
-        "hooks"
+        "summer",
+        "dress"
       ],
-      "thumbnail": "/images/products/stripe-starter.jpg",
-      "images": [
-        "/images/products/stripe-starter.jpg"
-      ],
-      "variants": [
-        {
-          "sku": "P09-STD",
-          "title": "Standard",
-          "price": 10999
-        }
-      ],
-      "shortDesc": "Prebuilt checkout, webhooks, subscription flow.",
-      "createdAt": "2025-08-14T09:00:00.000Z"
+      "stock": {
+        "XS": 6,
+        "S": 10,
+        "M": 15,
+        "L": 11,
+        "XL": 5
+      }
     },
     {
-      "id": "p10",
-      "name": "React Blog Theme",
-      "slug": "react-blog-theme",
-      "categoryId": "c-web",
-      "price": 7999,
-      "mrp": 9999,
-      "stock": 58,
-      "rating": 4,
-      "tags": [
-        "blog",
-        "react",
-        "tailwind"
-      ],
-      "thumbnail": "/images/products/blog-react.jpg",
-      "images": [
-        "/images/products/blog-react.jpg"
-      ],
-      "variants": [
-        {
-          "sku": "P10-STD",
-          "title": "Standard",
-          "price": 7999
-        }
-      ],
-      "shortDesc": "MDX support, categories, search.",
-      "createdAt": "2025-08-16T09:00:00.000Z"
-    },
-    {
-      "id": "p11",
-      "name": "Headless CMS Starter",
-      "slug": "headless-cms-starter",
-      "categoryId": "c-web",
-      "price": 13999,
-      "mrp": 16999,
-      "stock": 24,
-      "rating": 4.3,
-      "tags": [
-        "cms",
-        "headless"
-      ],
-      "thumbnail": "/images/products/cms-starter.jpg",
-      "images": [
-        "/images/products/cms-starter.jpg"
-      ],
-      "variants": [
-        {
-          "sku": "P11-STD",
-          "title": "Standard",
-          "price": 13999
-        }
-      ],
-      "shortDesc": "Integrates with popular headless CMS APIs.",
-      "createdAt": "2025-08-18T09:00:00.000Z"
-    },
-    {
-      "id": "p12",
-      "name": "Analytics Dash Kit",
-      "slug": "analytics-dash-kit",
-      "categoryId": "c-admin",
-      "price": 12999,
-      "mrp": 14999,
-      "stock": 37,
-      "rating": 4.5,
-      "tags": [
-        "charts",
-        "dashboard"
-      ],
-      "thumbnail": "/images/products/analytics-kit.jpg",
-      "images": [
-        "/images/products/analytics-kit.jpg"
-      ],
-      "variants": [
-        {
-          "sku": "P12-STD",
-          "title": "Standard",
-          "price": 12999
-        }
-      ],
-      "shortDesc": "Prewired charts with mock data & theming.",
-      "createdAt": "2025-08-20T09:00:00.000Z"
-    },
-    {
-      "id": "p13",
-      "name": "eCommerce Product Cards",
-      "slug": "ecommerce-product-cards",
-      "categoryId": "c-ui",
-      "price": 2499,
+      "id": "1008",
+      "name": "KURTA SET with Dupatta",
+      "brand": "KGF Ethnic",
+      "gender": "women",
+      "category": "ethnic",
+      "subCategory": "kurta set",
+      "price": 2199,
       "mrp": 3499,
-      "stock": 300,
-      "rating": 4.2,
-      "tags": [
-        "cards",
-        "ui"
-      ],
-      "thumbnail": "/images/products/cards.jpg",
-      "images": [
-        "/images/products/cards.jpg"
-      ],
-      "variants": [
+      "discountPct": 37,
+      "colors": [
         {
-          "sku": "P13-STD",
-          "title": "Standard",
-          "price": 2499
+          "code": "#7C3AED",
+          "name": "Aubergine"
         }
       ],
-      "shortDesc": "Responsive product cards & quick views.",
-      "createdAt": "2025-08-22T09:00:00.000Z"
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "thumbnail": "/img/women/kurta-set-12.jpg",
+      "images": [
+        "/img/women/kurta-set-12.jpg",
+        "/img/women/kurta-set-12.jpg"
+      ],
+      "rating": {
+        "avg": 4.4,
+        "count": 97
+      },
+      "fabric": "Rayon blend",
+      "fit": "Regular",
+      "care": "Dry clean preferred",
+      "tags": [
+        "festive",
+        "ethnic"
+      ],
+      "stock": {
+        "XS": 4,
+        "S": 9,
+        "M": 14,
+        "L": 12,
+        "XL": 7,
+        "XXL": 3
+      }
     },
     {
-      "id": "p14",
-      "name": "Notifications Center",
-      "slug": "notifications-center",
-      "categoryId": "c-util",
-      "price": 3499,
-      "mrp": 4999,
-      "stock": 210,
-      "rating": 4.1,
-      "tags": [
-        "notifications",
-        "toast"
-      ],
-      "thumbnail": "/images/products/notify.jpg",
-      "images": [
-        "/images/products/notify.jpg"
-      ],
-      "variants": [
+      "id": "1009",
+      "name": "Boys Graphic Tee",
+      "brand": "KGF Kids",
+      "gender": "kids",
+      "category": "t-shirt",
+      "subCategory": "graphic",
+      "price": 399,
+      "mrp": 599,
+      "discountPct": 33,
+      "colors": [
         {
-          "sku": "P14-STD",
-          "title": "Standard",
-          "price": 3499
+          "code": "#EF4444",
+          "name": "Red"
+        },
+        {
+          "code": "#3B82F6",
+          "name": "Blue"
         }
       ],
-      "shortDesc": "In-app toasts, inbox & email hooks.",
-      "createdAt": "2025-08-24T09:00:00.000Z"
+      "sizes": [
+        "3-4Y",
+        "5-6Y",
+        "7-8Y",
+        "9-10Y",
+        "11-12Y"
+      ],
+      "thumbnail": "/img/kids/graphic-tee-1.jpg",
+      "images": [
+        "/img/kids/graphic-tee-1.jpg",
+        "/img/kids/graphic-tee-2.jpg"
+      ],
+      "rating": {
+        "avg": 4.1,
+        "count": 72
+      },
+      "fabric": "100% Cotton",
+      "fit": "Regular",
+      "care": "Machine wash cold",
+      "tags": [
+        "kids",
+        "new"
+      ],
+      "stock": {
+        "3-4Y": 8,
+        "5-6Y": 10,
+        "7-8Y": 12,
+        "9-10Y": 9,
+        "11-12Y": 6
+      }
     },
     {
-      "id": "p15",
-      "name": "Forms Kit (React Hook Form)",
-      "slug": "forms-kit-react-hook-form",
-      "categoryId": "c-ui",
-      "price": 4499,
-      "mrp": 5999,
-      "stock": 160,
-      "rating": 4.6,
-      "tags": [
-        "forms",
-        "validation"
-      ],
-      "thumbnail": "/images/products/forms-kit.jpg",
-      "images": [
-        "/images/products/forms-kit.jpg"
-      ],
-      "variants": [
+      "id": "1010",
+      "name": "Girls Denim Skirt",
+      "brand": "KGF Kids",
+      "gender": "kids",
+      "category": "skirt",
+      "subCategory": "denim",
+      "price": 699,
+      "mrp": 999,
+      "discountPct": 30,
+      "colors": [
         {
-          "sku": "P15-STD",
-          "title": "Standard",
-          "price": 4499
+          "code": "#60A5FA",
+          "name": "Stone Blue"
         }
       ],
-      "shortDesc": "Validated forms, wizards & file uploads.",
-      "createdAt": "2025-08-25T09:00:00.000Z"
+      "sizes": [
+        "3-4Y",
+        "5-6Y",
+        "7-8Y",
+        "9-10Y"
+      ],
+      "thumbnail": "/img/kids/denim-skirt-1.jpg",
+      "images": [
+        "/img/kids/denim-skirt-1.jpg"
+      ],
+      "rating": {
+        "avg": 4.3,
+        "count": 45
+      },
+      "fabric": "Cotton Denim",
+      "fit": "Regular",
+      "care": "Machine wash cold",
+      "tags": [
+        "kids",
+        "denim"
+      ],
+      "stock": {
+        "3-4Y": 7,
+        "5-6Y": 9,
+        "7-8Y": 11,
+        "9-10Y": 5
+      }
     },
     {
-      "id": "p16",
-      "name": "Marketing Sections Pack",
-      "slug": "marketing-sections-pack",
-      "categoryId": "c-web",
-      "price": 6999,
-      "mrp": 8999,
-      "stock": 95,
-      "rating": 4.4,
-      "tags": [
-        "sections",
-        "hero",
-        "cta"
-      ],
-      "thumbnail": "/images/products/marketing-sections.jpg",
-      "images": [
-        "/images/products/marketing-sections.jpg"
-      ],
-      "variants": [
+      "id": "1011",
+      "name": "Athleisure Joggers",
+      "brand": "KGF Sport",
+      "gender": "men",
+      "category": "joggers",
+      "subCategory": "athleisure",
+      "price": 999,
+      "mrp": 1499,
+      "discountPct": 33,
+      "colors": [
         {
-          "sku": "P16-STD",
-          "title": "Standard",
-          "price": 6999
+          "code": "#6B7280",
+          "name": "Ash Grey"
+        },
+        {
+          "code": "#111827",
+          "name": "Black"
         }
       ],
-      "shortDesc": "Heros, features, CTA & pricing sections.",
-      "createdAt": "2025-08-26T09:00:00.000Z"
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "thumbnail": "/img/men/joggers-1.jpg",
+      "images": [
+        "/img/men/joggers-1.jpg",
+        "/img/men/joggers-2.jpg"
+      ],
+      "rating": {
+        "avg": 4.2,
+        "count": 113
+      },
+      "fabric": "Cotton Rich Terry",
+      "fit": "Tapered",
+      "care": "Machine wash cold",
+      "tags": [
+        "athleisure",
+        "joggers"
+      ],
+      "stock": {
+        "S": 10,
+        "M": 15,
+        "L": 12,
+        "XL": 8
+      }
     },
     {
-      "id": "p17",
-      "name": "Mobile UI Kit",
-      "slug": "mobile-ui-kit",
-      "categoryId": "c-mobile",
-      "price": 11999,
-      "mrp": 14999,
-      "stock": 28,
-      "rating": 4.3,
-      "tags": [
-        "mobile",
-        "react-native"
-      ],
-      "thumbnail": "/images/products/mobile-ui.jpg",
-      "images": [
-        "/images/products/mobile-ui.jpg"
-      ],
-      "variants": [
+      "id": "1012",
+      "name": "kurta-set-1",
+      "brand": "KGF Street",
+      "gender": "women",
+      "category": "t-shirt",
+      "subCategory": "boxy",
+      "price": 749,
+      "mrp": 1099,
+      "discountPct": 32,
+      "colors": [
         {
-          "sku": "P17-STD",
-          "title": "Standard",
-          "price": 11999
+          "code": "#F59E0B",
+          "name": "Mustard"
+        },
+        {
+          "code": "#D1D5DB",
+          "name": "Soft Grey"
         }
       ],
-      "shortDesc": "Common screens for native apps.",
-      "createdAt": "2025-08-28T09:00:00.000Z"
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "thumbnail": "/img/women/kurta-set-1.jpg",
+      "images": [
+        "/img/women/kurta-set-1.jpg",
+        "/img/women/kurta-set-1.jpg"
+      ],
+      "rating": {
+        "avg": 4,
+        "count": 63
+      },
+      "fabric": "100% Cotton, Bio-wash",
+      "fit": "Boxy",
+      "care": "Machine wash cold",
+      "tags": [
+        "street",
+        "graphic"
+      ],
+      "stock": {
+        "XS": 7,
+        "S": 9,
+        "M": 14,
+        "L": 11,
+        "XL": 6
+      }
     },
     {
-      "id": "p18",
-      "name": "Icons Pack (SVG)",
-      "slug": "icons-pack-svg",
-      "categoryId": "c-util",
-      "price": 1999,
-      "mrp": 2999,
-      "stock": 500,
-      "rating": 4,
-      "tags": [
-        "icons",
-        "svg"
-      ],
-      "thumbnail": "/images/products/icons-pack.jpg",
-      "images": [
-        "/images/products/icons-pack.jpg"
-      ],
-      "variants": [
+      "id": "1013",
+      "name": "Regular Fit Chinos",
+      "brand": "KGF Work",
+      "gender": "men",
+      "category": "trousers",
+      "subCategory": "chinos",
+      "price": 1299,
+      "mrp": 1999,
+      "discountPct": 35,
+      "colors": [
         {
-          "sku": "P18-STD",
-          "title": "Standard",
-          "price": 1999
+          "code": "#CA8A04",
+          "name": "Khaki"
+        },
+        {
+          "code": "#374151",
+          "name": "Slate"
         }
       ],
-      "shortDesc": "800+ crisp SVG icons.",
-      "createdAt": "2025-08-30T09:00:00.000Z"
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36"
+      ],
+      "thumbnail": "/img/men/chinos-1.jpg",
+      "images": [
+        "/img/men/chinos-1.jpg",
+        "/img/men/chinos-2.jpg"
+      ],
+      "rating": {
+        "avg": 4.1,
+        "count": 81
+      },
+      "fabric": "97% Cotton, 3% Elastane",
+      "fit": "Regular",
+      "care": "Machine wash warm",
+      "tags": [
+        "workwear",
+        "chinos"
+      ],
+      "stock": {
+        "28": 8,
+        "30": 12,
+        "32": 18,
+        "34": 9,
+        "36": 6
+      }
+    },
+    {
+      "id": "1014",
+      "name": "Men’s Hooded Sweatshirt",
+      "brand": "KGF Cozy",
+      "gender": "men",
+      "category": "sweatshirt",
+      "subCategory": "hoodie",
+      "price": 1299,
+      "mrp": 1999,
+      "discountPct": 35,
+      "colors": [
+        {
+          "code": "#111827",
+          "name": "Black"
+        },
+        {
+          "code": "#374151",
+          "name": "Slate"
+        }
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "thumbnail": "/img/men/hoodie-1.jpg",
+      "images": [
+        "/img/men/hoodie-1.jpg",
+        "/img/men/hoodie-2.jpg"
+      ],
+      "rating": {
+        "avg": 4.5,
+        "count": 190
+      },
+      "fabric": "Cotton Blend Fleece",
+      "fit": "Regular",
+      "care": "Machine wash cold",
+      "tags": [
+        "winter",
+        "hoodie"
+      ],
+      "stock": {
+        "S": 9,
+        "M": 16,
+        "L": 20,
+        "XL": 12,
+        "XXL": 7
+      }
+    },
+    {
+      "id": "1015",
+      "name": "Nav kurta",
+      "brand": "KGF Cozy",
+      "gender": "women",
+      "category": "sweatshirt",
+      "subCategory": "zip hoodie",
+      "price": 1399,
+      "mrp": 2199,
+      "discountPct": 36,
+      "colors": [
+        {
+          "code": "#6EE7B7",
+          "name": "Mint"
+        },
+        {
+          "code": "#FECACA",
+          "name": "Blush"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "thumbnail": "/img/women/Nav kurta.jpg",
+      "images": [
+        "/img/women/Nav kurta.jpg",
+        "/img/women/Nav kurta.jpg.jpg"
+      ],
+      "rating": {
+        "avg": 4.3,
+        "count": 122
+      },
+      "fabric": "Cotton-Poly Fleece",
+      "fit": "Regular",
+      "care": "Machine wash cold",
+      "tags": [
+        "winter",
+        "hoodie"
+      ],
+      "stock": {
+        "XS": 6,
+        "S": 10,
+        "M": 15,
+        "L": 12,
+        "XL": 8
+      }
+    },
+    {
+      "id": "1016",
+      "name": "Unisex Overshirt Jacket",
+      "brand": "KGF Street",
+      "gender": "unisex",
+      "category": "jacket",
+      "subCategory": "overshirt",
+      "price": 1799,
+      "mrp": 2899,
+      "discountPct": 38,
+      "colors": [
+        {
+          "code": "#9CA3AF",
+          "name": "Grey"
+        },
+        {
+          "code": "#111827",
+          "name": "Black"
+        }
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "thumbnail": "/img/unisex/overshirt-1.jpg",
+      "images": [
+        "/img/unisex/overshirt-1.jpg",
+        "/img/unisex/overshirt-2.jpg"
+      ],
+      "rating": {
+        "avg": 4.4,
+        "count": 77
+      },
+      "fabric": "Cotton Twill",
+      "fit": "Relaxed",
+      "care": "Machine wash gentle",
+      "tags": [
+        "layering",
+        "street"
+      ],
+      "stock": {
+        "XS": 5,
+        "S": 9,
+        "M": 14,
+        "L": 10,
+        "XL": 6
+      }
     }
   ],
   "cart": [
     {
-      "id": "0d26",
-      "productId": "p04",
-      "name": "Admin Dashboard (React)",
-      "price": 14999,
+      "id": "c120",
+      "productId": "1006",
+      "name": "Ribbed Crop Top",
+      "price": 599,
+      "qty": 1,
+      "size": "XS",
+      "color": "White"
+    },
+    {
+      "id": "5ff6",
+      "productId": "1008",
+      "name": "KURTA SET with Dupatta",
+      "price": 2199,
+      "qty": 1,
+      "size": "XL",
+      "color": "Aubergine"
+    },
+    {
+      "id": "2fff",
+      "productId": "1007",
+      "name": "Floral Summer Dress",
+      "price": 1499,
       "qty": 1
+    },
+    {
+      "id": "8dac",
+      "productId": "1006",
+      "name": "Ribbed Crop Top",
+      "price": 599,
+      "qty": 1,
+      "size": "XS",
+      "color": "Black"
     }
   ]
 }
