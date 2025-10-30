@@ -1,213 +1,270 @@
 // src/components/filters/SidebarFilters.jsx
-import React from "react";
+import { useState } from "react";
 
 export default function SidebarFilters({
-  facets,
+  // counts
+  subCounts = [],
+  sizeCounts = [],
+  colorCounts = [],
+  brandCounts = [],
+  // selections
   gender, setGender,
-  sub, setSub,            // <-- now labeled as "Category"
-  size, setSize,
-  color, setColor,
+  subs, setSubs,
+  sizes, setSizes,
+  colors, setColors,
+  brands, setBrands,
   priceMin, setPriceMin,
   priceMax, setPriceMax,
-  brand, setBrand,
-  inStock, setInStock,    // kept but shown as a small checkbox header tool
   rating, setRating,
   discount, setDiscount,
+  // sort props are accepted but not rendered here (desktop has top sorter)
   sort, setSort,
+  priceRange = { min: 0, max: 0 },
   onClearAll,
 }) {
-  const Section = ({ title, children, className = "" }) => (
-    <div className={`rounded-xl border p-3 ${className}`}>
-      <div className="mb-2 text-sm font-semibold text-gray-800">{title}</div>
-      {children}
-    </div>
-  );
-
   return (
-    // narrower: from lg:w-72 → lg:w-64
-    <aside className="sticky top-16 flex w-full flex-col gap-3 lg:w-64">
+    <aside className="sticky top-20 space-y-4">
       <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold">Filters</div>
-        <button onClick={onClearAll} className="text-xs text-gray-600 hover:underline">Clear all</button>
+        <h3 className="text-sm font-semibold">Filters</h3>
+        <button onClick={onClearAll} className="text-xs text-gray-600 hover:underline">
+          Clear all
+        </button>
       </div>
 
-      {/* (1) Gender (formerly labeled Category) */}
-      <Section title="Gender">
-        <div className="grid grid-cols-3 gap-2">
+      <Group title="Gender">
+        <div className="grid gap-2">
           {["all", "men", "women", "kids"].map((g) => (
-            <button
-              key={g}
-              onClick={() => setGender(g)}
-              className={`rounded-full border px-3 py-1.5 text-xs ${
-                gender === g ? "bg-black text-white" : "hover:bg-gray-50"
-              }`}
-            >
-              {g[0].toUpperCase() + g.slice(1)}
-            </button>
+            <label key={g} className="flex items-center gap-2 text-sm">
+              <input
+                type="radio"
+                name="gender"
+                value={g}
+                checked={gender === g}
+                onChange={(e) => setGender(e.target.value)}
+              />
+              <span className="capitalize">{g}</span>
+            </label>
           ))}
         </div>
-        {/* small in-stock toggle lives at the top as an option */}
-        <label className="mt-2 flex items-center gap-2 text-xs text-gray-700">
-          <input type="checkbox" checked={inStock} onChange={(e) => setInStock(e.target.checked)} />
-          In stock only
-        </label>
-      </Section>
+      </Group>
 
-      {/* (2) Category (formerly Sub-category) */}
-      {facets.subCategories.length > 0 && (
-        <Section title="Category">
-          <div className="flex flex-wrap gap-2">
-            <Pill active={sub === ""} onClick={() => setSub("")}>Any</Pill>
-            {facets.subCategories.slice(0, 16).map((s) => (
-              <Pill key={s} active={sub === s} onClick={() => setSub(sub === s ? "" : s)}>{s}</Pill>
-            ))}
-          </div>
-        </Section>
-      )}
+      <Group title="Category" clear={() => setSubs([])} hasClear={subs.length > 0}>
+        <Checklist
+          items={subCounts}
+          selected={subs}
+          onToggle={(v) => toggleMulti(v, subs, setSubs)}
+        />
+      </Group>
 
-      {/* (3) Size */}
-      <Section title="Size">
-        <div className="flex flex-wrap gap-2">
-          <SizePill active={!size} onClick={() => setSize("")}>Any</SizePill>
-          {facets.sizes.slice(0, 18).map((s) => (
-            <SizePill key={s} active={size === s} onClick={() => setSize(size === s ? "" : s)}>{s}</SizePill>
-          ))}
-        </div>
-      </Section>
+      {/* SIZE: custom order S > M > L > XL > XXL (XS before S), then numerics, then others */}
+      <Group title="Size" clear={() => setSizes([])} hasClear={sizes.length > 0}>
+        <Checklist
+          items={sizeCounts}
+          selected={sizes}
+          onToggle={(v) => toggleMulti(v, sizes, setSizes)}
+          sortMode="size"
+        />
+      </Group>
 
-      {/* (4) Color */}
-      {facets.colors.length > 0 && (
-        <Section title="Color">
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              onClick={() => setColor("")}
-              className={`px-3 py-1 text-xs rounded-full border ${
-                !color ? "bg-black text-white" : "hover:bg-gray-50"
-              }`}
-            >
-              Any
-            </button>
-            {facets.colors.slice(0, 14).map((c) => (
-              <button
-                key={c.name}
-                onClick={() => setColor(color === c.name ? "" : c.name)}
-                className={`flex items-center gap-2 rounded-full border px-2.5 py-1 text-xs ${
-                  color === c.name ? "bg-black text-white" : "hover:bg-gray-50"
-                }`}
-                title={c.name}
-              >
-                <span className="h-3.5 w-3.5 rounded-full border" style={{ backgroundColor: c.code }} />
-                {c.name}
-              </button>
-            ))}
-          </div>
-        </Section>
-      )}
+      <Group title="Color" clear={() => setColors([])} hasClear={colors.length > 0}>
+        <ColorSwatches
+          items={colorCounts}
+          selected={colors}
+          onToggle={(v) => toggleMulti(v, colors, setColors)}
+        />
+      </Group>
 
-      {/* (5) Price */}
-      <Section title="Price">
-        <div className="flex gap-2">
+      <Group title="Price">
+        <div className="flex items-center gap-2">
           <input
+            type="number"
             inputMode="numeric"
+            placeholder={priceRange.min ? String(priceRange.min) : "Min"}
+            className="w-24 rounded border px-2 py-1 text-sm"
             value={priceMin}
-            onChange={(e) => setPriceMin(e.target.value.replace(/\D/g, ""))}
-            placeholder={facets.priceMin ? String(facets.priceMin) : "0"}
-            className="w-1/2 rounded-full border px-3 py-1.5 text-sm outline-none focus:ring"
-            aria-label="Min price"
+            onChange={(e) => setPriceMin(e.target.value)}
           />
+          <span className="text-gray-400">—</span>
           <input
+            type="number"
             inputMode="numeric"
+            placeholder={priceRange.max ? String(priceRange.max) : "Max"}
+            className="w-24 rounded border px-2 py-1 text-sm"
             value={priceMax}
-            onChange={(e) => setPriceMax(e.target.value.replace(/\D/g, ""))}
-            placeholder={facets.priceMax ? String(facets.priceMax) : "0"}
-            className="w-1/2 rounded-full border px-3 py-1.5 text-sm outline-none focus:ring"
-            aria-label="Max price"
+            onChange={(e) => setPriceMax(e.target.value)}
           />
         </div>
-      </Section>
+      </Group>
 
-      {/* (6) Brand */}
-      {facets.brands.length > 0 && (
-        <Section title="Brand">
-          <div className="flex flex-wrap gap-2">
-            <Pill active={!brand} onClick={() => setBrand("")}>Any</Pill>
-            {facets.brands.slice(0, 10).map((b) => (
-              <Pill key={b} active={brand === b} onClick={() => setBrand(brand === b ? "" : b)}>{b}</Pill>
-            ))}
-          </div>
-        </Section>
-      )}
+      <Group title="Brand" clear={() => setBrands([])} hasClear={brands.length > 0}>
+        <Checklist
+          items={brandCounts}
+          selected={brands}
+          onToggle={(v) => toggleMulti(v, brands, setBrands)}
+        />
+      </Group>
 
-      {/* (7) Rating */}
-      <Section title="Rating">
-        <div className="grid grid-cols-2 gap-2">
-          {[0, 3, 4].map((r) => (
-            <button
-              key={r}
-              onClick={() => setRating(r)}
-              className={`rounded-full border px-3 py-1.5 text-xs ${
-                rating === r ? "bg-black text-white" : "hover:bg-gray-50"
-              }`}
-            >
-              {r === 0 ? "Any" : `${r}★ & up`}
-            </button>
-          ))}
-        </div>
-      </Section>
+      <Group title="Rating">
+        <Pills
+          items={[5, 4, 3, 2].map((n) => ({ value: n, label: `${n}★ & up` }))}
+          selected={rating}
+          onSelect={(v) => setRating(v === rating ? 0 : v)}
+        />
+      </Group>
 
-      {/* (8) Discount */}
-      <Section title="Discount">
-        <div className="grid grid-cols-2 gap-2">
-          {[0, 10, 20, 30, 50].map((d) => (
-            <button
-              key={d}
-              onClick={() => setDiscount(d)}
-              className={`rounded-full border px-3 py-1.5 text-xs ${
-                discount === d ? "bg-black text-white" : "hover:bg-gray-50"
-              }`}
-            >
-              {d === 0 ? "Any" : `${d}%+`}
-            </button>
-          ))}
-        </div>
-      </Section>
+      <Group title="Discount">
+        <Pills
+          items={[50, 40, 30, 20].map((n) => ({ value: n, label: `${n}%+` }))}
+          selected={discount}
+          onSelect={(v) => setDiscount(v === discount ? 0 : v)}
+        />
+      </Group>
 
-      {/* Sort kept at the end of sidebar, also duplicated above grid on desktop */}
-      <Section title="Sort by" className="mb-1">
-        <select
-          value={sort}
-          onChange={(e) => setSort(e.target.value)}
-          className="w-full rounded-full border px-3 py-2 text-sm outline-none focus:ring"
-        >
-          <option value="relevance">Relevance</option>
-          <option value="priceAsc">Price: Low to High</option>
-          <option value="priceDesc">Price: High to Low</option>
-          <option value="rating">Customer Rating</option>
-          <option value="new">New Arrivals</option>
-        </select>
-      </Section>
+      {/* NOTE: "Sort by" removed from sidebar (desktop already has sorter above grid) */}
     </aside>
   );
 }
 
-function Pill({ active, onClick, children }) {
+/* ---------- UI bits ---------- */
+function Group({ title, children, clear, hasClear }) {
+  const [open, setOpen] = useState(true);
   return (
-    <button
-      onClick={onClick}
-      className={`rounded-full border px-3 py-1.5 text-xs ${active ? "bg-black text-white" : "hover:bg-gray-50"}`}
-    >
-      {children}
-    </button>
+    <div className="rounded-2xl border">
+      <button
+        className="flex w-full items-center justify-between px-3 py-2"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+      >
+        <span className="text-sm font-medium">{title}</span>
+        <div className="flex items-center gap-3">
+          {hasClear && clear && (
+            <button
+              className="text-xs text-gray-600 hover:underline"
+              onClick={(e) => { e.stopPropagation(); clear(); }}
+            >
+              Clear
+            </button>
+          )}
+          <span className={`transition-transform ${open ? "rotate-180" : ""}`}>⌃</span>
+        </div>
+      </button>
+      <div className={`${open ? "block" : "hidden"} px-3 pb-3`}>{children}</div>
+    </div>
   );
 }
 
-function SizePill({ active, onClick, children }) {
+function Checklist({ items = [], selected = [], onToggle, sortMode }) {
+  const sorted = sortMode === "size" ? [...items].sort(sizeComparator) : [...items].sort(aToZ);
   return (
-    <button
-      onClick={onClick}
-      className={`size-pill ${active ? "size-pill-active" : ""}`}
-    >
-      {children}
-    </button>
+    <ul className="grid gap-2">
+      {sorted.map(({ value, count }) => (
+        <li key={value}>
+          <label className="flex cursor-pointer items-center justify-between gap-2 text-sm">
+            <span className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={selected.includes(value)}
+                onChange={() => onToggle(value)}
+              />
+              <span>{value}</span>
+            </span>
+            <span className="text-xs text-gray-500">{count}</span>
+          </label>
+        </li>
+      ))}
+    </ul>
   );
+}
+
+function ColorSwatches({ items = [], selected = [], onToggle }) {
+  const sorted = [...items].sort(aToZ);
+  return (
+    <div className="flex flex-wrap gap-2">
+      {sorted.map(({ value, count }) => (
+        <button
+          key={value}
+          title={`${value} (${count})`}
+          onClick={() => onToggle(value)}
+          className={`relative h-7 w-7 rounded-full border transition ${
+            selected.includes(value) ? "ring-2 ring-gray-900" : ""
+          }`}
+          aria-pressed={selected.includes(value)}
+        >
+          <span className="absolute -right-1 -top-1 rounded bg-white px-1 text-[10px] text-gray-700">
+            {count}
+          </span>
+          <span
+            className="absolute inset-0 rounded-full"
+            style={{ background: swatchColor(value) }}
+            aria-hidden
+          />
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function Pills({ items = [], selected, onSelect }) {
+  return (
+    <div className="flex flex-wrap gap-2">
+      {items.map((it) => (
+        <button
+          key={it.value}
+          onClick={() => onSelect(it.value)}
+          className={`rounded-full border px-3 py-1 text-xs ${
+            selected === it.value ? "bg-gray-900 text-white" : "hover:bg-gray-50"
+          }`}
+        >
+          {it.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/* ---------- utils ---------- */
+function toggleMulti(v, arr, setter) {
+  setter(arr.includes(v) ? arr.filter((x) => x !== v) : [...arr, v]);
+}
+function aToZ(a, b) {
+  return String(a.value).localeCompare(String(b.value), undefined, { sensitivity: "base" });
+}
+
+// Size sorting: kids ages first (by starting age), then letters XS..XXL, then numerics, then others
+const LETTER_ORDER = ["XS", "S", "M", "L", "XL", "XXL"];
+const KIDS_AGE = /^(\d{1,2})-(\d{1,2})Y$/i;
+
+function sizeRank(val) {
+  const v = String(val).toUpperCase();
+  const m = v.match(KIDS_AGE);
+  if (m) return [0, Number(m[1])];                           // kids: 3-4Y < 5-6Y < …
+  const letterIdx = LETTER_ORDER.indexOf(v);
+  if (letterIdx !== -1) return [1, letterIdx];               // XS < S < M < L < XL < XXL
+  const num = parseInt(v.replace(/\D/g, ""), 10);
+  if (!Number.isNaN(num)) return [2, num];                   // numeric sizes (if any left)
+  return [3, v];                                             // others A→Z
+}
+
+function sizeComparator(a, b) {
+  const [ga, ia] = sizeRank(a.value ?? a);                   // supports {value,count} or raw string
+  const [gb, ib] = sizeRank(b.value ?? b);
+  if (ga !== gb) return ga - gb;
+  if (typeof ia === "number" && typeof ib === "number") return ia - ib;
+  return String(ia).localeCompare(String(ib));
+}
+
+
+function swatchColor(name) {
+  const n = (name || "").toLowerCase();
+  if (n.includes("black")) return "#111827";
+  if (n.includes("white")) return "#F3F4F6";
+  if (n.includes("blue")) return "#3B82F6";
+  if (n.includes("red")) return "#EF4444";
+  if (n.includes("green")) return "#10B981";
+  if (n.includes("grey") || n.includes("gray")) return "#9CA3AF";
+  if (n.includes("mint")) return "#6EE7B7";
+  if (n.includes("rose") || n.includes("blush")) return "#FECACA";
+  if (n.includes("mustard")) return "#F59E0B";
+  if (n.includes("sunflower")) return "#FDE68A";
+  return "#E5E7EB";
 }
