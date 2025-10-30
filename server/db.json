@@ -2,7 +2,7 @@
   "clothingProducts": [
     {
       "id": "1001",
-      "name": "Oversized Cotton Tee",
+      "name": "SOFT POCKET OVERSHIRT",
       "brand": "KGF Basics",
       "gender": "men",
       "category": "t-shirt",
@@ -27,11 +27,11 @@
         "XL",
         "XXL"
       ],
-      "thumbnail": "/img/men/oversized-tee-1.jpg",
+      "thumbnail": "/img/men/SOFT POCKET OVERSHIRT.jpg",
       "images": [
-        "/img/men/oversized-tee-1.jpg",
-        "/img/men/oversized-tee-2.jpg",
-        "/img/men/oversized-tee-3.jpg"
+        "/img/men/SOFT POCKET OVERSHIRT.jpg",
+        "/img/men/SOFT POCKET OVERSHIRT.jpg",
+        "/img/men/SOFT POCKET OVERSHIRT.jpg"
       ],
       "rating": {
         "avg": 4.4,
@@ -55,7 +55,7 @@
     },
     {
       "id": "1002",
-      "name": "Stretch Slim Jeans",
+      "name": "DENIM CHINO TROUSERS",
       "brand": "DenimForge",
       "gender": "men",
       "category": "jeans",
@@ -77,10 +77,10 @@
         "36",
         "38"
       ],
-      "thumbnail": "/img/men/jeans-slim-1.jpg",
+      "thumbnail": "/img/men/DENIM CHINO TROUSERS.jpg",
       "images": [
-        "/img/men/jeans-slim-1.jpg",
-        "/img/men/jeans-slim-2.jpg"
+        "/img/men/DENIM CHINO TROUSERS.jpg",
+        "/img/men/DENIM CHINO TROUSERS.jpg"
       ],
       "rating": {
         "avg": 4.2,
@@ -104,7 +104,7 @@
     },
     {
       "id": "1003",
-      "name": "Linen Blend Casual Shirt",
+      "name": "REGULAR FIT WOOL COAT",
       "brand": "KGF Studio",
       "gender": "men",
       "category": "shirt",
@@ -128,10 +128,10 @@
         "L",
         "XL"
       ],
-      "thumbnail": "/img/men/linen-shirt-1.jpg",
+      "thumbnail": "/img/men/REGULAR FIT WOOL COAT.jpg",
       "images": [
-        "/img/men/linen-shirt-1.jpg",
-        "/img/men/linen-shirt-2.jpg"
+        "/img/men/REGULAR FIT WOOL COAT.jpg",
+        "/img/men/REGULAR FIT WOOL COAT.jpg"
       ],
       "rating": {
         "avg": 4.1,
@@ -153,7 +153,7 @@
     },
     {
       "id": "1004",
-      "name": "Classic Polo Tee",
+      "name": "HENLEY T-SHIRT",
       "brand": "KGF Sport",
       "gender": "men",
       "category": "t-shirt",
@@ -177,10 +177,10 @@
         "L",
         "XL"
       ],
-      "thumbnail": "/img/men/polo-1.jpg",
+      "thumbnail": "/img/men/HENLEY T-SHIRT.jpg",
       "images": [
-        "/img/men/polo-1.jpg",
-        "/img/men/polo-2.jpg"
+        "/img/men/HENLEY T-SHIRT.jpg",
+        "/img/men/HENLEY T-SHIRT.jpg"
       ],
       "rating": {
         "avg": 4.3,
@@ -399,8 +399,8 @@
     },
     {
       "id": "1009",
-      "name": "Boys Graphic Tee",
-      "brand": "KGF Kids",
+      "name": "PRINTED WOOL",
+      "brand": "Zara Kids",
       "gender": "kids",
       "category": "t-shirt",
       "subCategory": "graphic",
@@ -424,10 +424,10 @@
         "9-10Y",
         "11-12Y"
       ],
-      "thumbnail": "/img/kids/graphic-tee-1.jpg",
+      "thumbnail": "/img/kids/PRINTED WOOL.jpg",
       "images": [
-        "/img/kids/graphic-tee-1.jpg",
-        "/img/kids/graphic-tee-2.jpg"
+        "/img/kids/PRINTED WOOL.jpg",
+        "/img/kids/PRINTED WOOL.jpg"
       ],
       "rating": {
         "avg": 4.1,
@@ -450,8 +450,8 @@
     },
     {
       "id": "1010",
-      "name": "Girls Denim Skirt",
-      "brand": "KGF Kids",
+      "name": "SPORTY LOGO SWEATSHIRT",
+      "brand": "Zara Kids",
       "gender": "kids",
       "category": "skirt",
       "subCategory": "denim",
@@ -470,9 +470,9 @@
         "7-8Y",
         "9-10Y"
       ],
-      "thumbnail": "/img/kids/denim-skirt-1.jpg",
+      "thumbnail": "/img/kids/SPORTY LOGO SWEATSHIRT.jpg",
       "images": [
-        "/img/kids/denim-skirt-1.jpg"
+        "/img/kids/SPORTY LOGO SWEATSHIRT.jpgg"
       ],
       "rating": {
         "avg": 4.3,
@@ -494,7 +494,7 @@
     },
     {
       "id": "1011",
-      "name": "Athleisure Joggers",
+      "name": "TECHNICAL HOODIE ",
       "brand": "KGF Sport",
       "gender": "men",
       "category": "joggers",
@@ -518,10 +518,10 @@
         "L",
         "XL"
       ],
-      "thumbnail": "/img/men/joggers-1.jpg",
+      "thumbnail": "/img/men/TECHNICAL HOODIE.jpg",
       "images": [
-        "/img/men/joggers-1.jpg",
-        "/img/men/joggers-2.jpg"
+        "/img/men/TECHNICAL HOODIE.jpg",
+        "/img/men/TECHNICAL HOODIE.jpg"
       ],
       "rating": {
         "avg": 4.2,
@@ -594,7 +594,7 @@
     },
     {
       "id": "1013",
-      "name": "Regular Fit Chinos",
+      "name": "FLANNEL PLEATED TROUSERS",
       "brand": "KGF Work",
       "gender": "men",
       "category": "trousers",
@@ -619,10 +619,10 @@
         "34",
         "36"
       ],
-      "thumbnail": "/img/men/chinos-1.jpg",
+      "thumbnail": "/img/men/FLANNEL PLEATED TROUSERS.jpg",
       "images": [
-        "/img/men/chinos-1.jpg",
-        "/img/men/chinos-2.jpg"
+        "/img/men/FLANNEL PLEATED TROUSERS.jpg",
+        "/img/men/FLANNEL PLEATED TROUSERS.jpg"
       ],
       "rating": {
         "avg": 4.1,
@@ -645,7 +645,7 @@
     },
     {
       "id": "1014",
-      "name": "Men’s Hooded Sweatshirt",
+      "name": "CASHMERE LIMITED EDITION CARDIGAN",
       "brand": "KGF Cozy",
       "gender": "men",
       "category": "sweatshirt",
@@ -670,10 +670,10 @@
         "XL",
         "XXL"
       ],
-      "thumbnail": "/img/men/hoodie-1.jpg",
+      "thumbnail": "/img/men/CASHMERE LIMITED EDITION CARDIGAN.jpg",
       "images": [
-        "/img/men/hoodie-1.jpg",
-        "/img/men/hoodie-2.jpg"
+        "/img/men/CASHMERE LIMITED EDITION CARDIGAN.jpg",
+        "/img/men/CASHMERE LIMITED EDITION CARDIGAN.jpg"
       ],
       "rating": {
         "avg": 4.5,
@@ -747,9 +747,9 @@
     },
     {
       "id": "1016",
-      "name": "Unisex Overshirt Jacket",
+      "name": "BOMBER JACKET",
       "brand": "KGF Street",
-      "gender": "unisex",
+      "gender": "kids",
       "category": "jacket",
       "subCategory": "overshirt",
       "price": 1799,
@@ -772,10 +772,10 @@
         "L",
         "XL"
       ],
-      "thumbnail": "/img/unisex/overshirt-1.jpg",
+      "thumbnail": "/img/kids/BOMBER JACKET.jpg",
       "images": [
-        "/img/unisex/overshirt-1.jpg",
-        "/img/unisex/overshirt-2.jpg"
+        "/img/kids/BOMBER JACKET.jpg",
+        "/img/kids/BOMBER JACKET.jpg"
       ],
       "rating": {
         "avg": 4.4,
@@ -799,31 +799,6 @@
   ],
   "cart": [
     {
-      "id": "c120",
-      "productId": "1006",
-      "name": "Ribbed Crop Top",
-      "price": 599,
-      "qty": 1,
-      "size": "XS",
-      "color": "White"
-    },
-    {
-      "id": "5ff6",
-      "productId": "1008",
-      "name": "KURTA SET with Dupatta",
-      "price": 2199,
-      "qty": 1,
-      "size": "XL",
-      "color": "Aubergine"
-    },
-    {
-      "id": "2fff",
-      "productId": "1007",
-      "name": "Floral Summer Dress",
-      "price": 1499,
-      "qty": 1
-    },
-    {
       "id": "8dac",
       "productId": "1006",
       "name": "Ribbed Crop Top",
@@ -831,6 +806,24 @@
       "qty": 1,
       "size": "XS",
       "color": "Black"
+    },
+    {
+      "id": "71f1",
+      "productId": "1005",
+      "name": "High-Rise Mom Jeans",
+      "price": 1699,
+      "qty": 1,
+      "size": "26",
+      "color": "Light Blue"
+    },
+    {
+      "id": "b105",
+      "productId": "1009",
+      "name": "Boys Graphic Tee",
+      "price": 399,
+      "qty": 1,
+      "size": "3-4Y",
+      "color": "Red"
     }
   ]
 }

@@ -128,19 +128,19 @@ function CategoryTiles() {
     {
       label: "Men",
       to: "/products?cat=men",
-      img: "/img/men/oversized-tee-1.jpg",
+      img: "/img/men/FLANNEL PLEATED TROUSERS.jpg",
       bg: "from-slate-50 to-gray-100",
     },
     {
       label: "Women",
       to: "/products?cat=women",
-      img: "/img/women/floral-dress-1.jpg",
+      img: "/img/women/Nav kurta.jpg",
       bg: "from-rose-50 to-pink-100",
     },
     {
       label: "Kids",
       to: "/products?cat=kids",
-      img: "/img/kids/graphic-tee-1.jpg",
+      img: "/img/kids/SPORTY LOGO SWEATSHIRT.jpg",
       bg: "from-amber-50 to-yellow-100",
     },
   ];
