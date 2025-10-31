@@ -1,4 +1,4 @@
-export default function CartItemRow({ item, onQtyChange, onRemove }) {
+export default function CartItemRow({ item, onQtyChange, onRemove, onSave }) {
   const qty = item.qty ?? 1;
   const format = (n) => `₹${(n ?? 0).toLocaleString("en-IN")}`;
   const mrp = item.mrp ?? item.price ?? 0;
@@ -38,11 +38,11 @@ export default function CartItemRow({ item, onQtyChange, onRemove }) {
               </div>
             </div>
 
-            {/* Actions */}
+            {/* Qty actions */}
             <div className="flex items-center gap-2">
               <button
                 className="btn-outline px-2"
-                onClick={() => onQtyChange(Math.max(1, qty - 1))}
+                onClick={() => onQtyChange?.(Math.max(1, qty - 1))}
                 aria-label="decrease quantity"
               >
                 −
@@ -50,7 +50,7 @@ export default function CartItemRow({ item, onQtyChange, onRemove }) {
               <span className="min-w-6 text-center">{qty}</span>
               <button
                 className="btn-outline px-2"
-                onClick={() => onQtyChange(qty + 1)}
+                onClick={() => onQtyChange?.(qty + 1)}
                 aria-label="increase quantity"
               >
                 +
@@ -77,8 +77,12 @@ export default function CartItemRow({ item, onQtyChange, onRemove }) {
 
           {/* Row actions */}
           <div className="mt-3 flex items-center gap-4 text-sm">
-            <button className="text-gray-700 hover:text-gray-900" onClick={onRemove}>Remove</button>
-            <button className="text-gray-700 hover:text-gray-900">Move to wishlist</button>
+            <button className="text-gray-700 hover:text-gray-900" onClick={() => onRemove?.()}>
+              Remove
+            </button>
+            <button className="text-gray-700 hover:text-gray-900" onClick={() => onSave?.()}>
+              Save for later
+            </button>
           </div>
         </div>
       </div>
