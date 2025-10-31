@@ -804,20 +804,6 @@
       "name": "PRINTED WOOL",
       "price": 399,
       "qty": 1
-    },
-    {
-      "id": "2815",
-      "productId": "1015",
-      "name": "Nav kurta",
-      "price": 1399,
-      "qty": 1
-    },
-    {
-      "id": "c6f1",
-      "productId": "1008",
-      "name": "KURTA SET with Dupatta",
-      "price": 2199,
-      "qty": 1
     }
   ]
 }

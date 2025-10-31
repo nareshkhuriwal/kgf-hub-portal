@@ -5,12 +5,16 @@ import CartItemRow from "../components/cart/CartItemRow";
 import CouponBlock from "../components/cart/CouponBlock";
 import PriceDetailsCard from "../components/cart/PriceDetailsCard";
 import StickySummary from "../components/cart/StickySummary";
+import FreeShippingProgress from "../components/cart/FreeShippingProgress";
 import { createRzpOrder, verifyPayment } from "../api/payments";
 import { useNavigate } from "react-router-dom";
 
+// ➕ NEW
+import ShippingOptions from "../components/cart/ShippingOptions";
+
 export default function Cart() {
   const { items, subtotal, remove, setQty, loading } = useCart();
-const nav = useNavigate();
+  const nav = useNavigate();
 
   const [address] = useState({
     id: "addr1",
@@ -23,6 +27,9 @@ const nav = useNavigate();
   const [coupon, setCoupon] = useState(null); // { code, discount, lines: [{label,amount}] }
   const [platformFee] = useState(23); // configurable
 
+  // ➕ NEW: selected shipping option { id, label, price, eta, available }
+  const [shipping, setShipping] = useState(null);
+
   const format = (n) => `₹${(n ?? 0).toLocaleString("en-IN")}`;
 
   // Derive MRP/discounts from items (works even if item.mrp not present)
@@ -32,19 +39,21 @@ const nav = useNavigate();
     const discountOnMrp = totalMrp - totalSelling;
     const couponDiscount = coupon?.discount ?? 0;
 
-   
-    const grandTotal = Math.max(totalSelling - couponDiscount + platformFee +  0);
+    // ➕ NEW: include shipping cost in totals (0 if none selected)
+    const shippingCost = shipping?.price ?? 0;
+
+    const grandTotal = Math.max(totalSelling - couponDiscount + platformFee + shippingCost, 0);
 
     return {
       totalMrp,
       discountOnMrp,
       couponDiscount,
       platformFee,
+      // ➕ expose shipping to PriceDetailsCard
+      shipping: shippingCost,
       grandTotal,
     };
-  }, [items, coupon, platformFee]);
-
-
+  }, [items, coupon, platformFee, shipping]);
 
   const token = localStorage.getItem("kgf_token"); // or your auth hook
   console.log("Cart items:", items);
@@ -122,15 +131,12 @@ const nav = useNavigate();
     rzp.open();
   }
 
-
-
-
   if (loading) return <p>Loading...</p>;
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-6">
       <div className="grid gap-6 md:grid-cols-12">
-        {/* LEFT: address, offers, items */}
+        {/* LEFT: address, items */}
         <div className="md:col-span-7 lg:col-span-8 space-y-4">
           <AddressBanner address={address} />
 
@@ -168,17 +174,32 @@ const nav = useNavigate();
                 onRemove={() => setCoupon(null)}
               />
 
+              {/* ➕ NEW: Delivery options block */}
+              <ShippingOptions
+                pincode={address.pincode}
+                value={shipping}
+                onChange={setShipping}
+              />
+
               <PriceDetailsCard
                 price={price}
                 coupon={coupon}
                 format={format}
               />
+              
+                            {/* Free Express progress (threshold configurable) */}
+                            <FreeShippingProgress price={price} threshold={499} shipping={shipping} />
 
               <button className="btn-primary w-full py-3 text-white" onClick={handleCheckout}>
                 PLACE ORDER
               </button>
-           
-           
+
+              {/* ➕ NEW: ETA note under CTA, if shipping chosen */}
+              {shipping?.eta && (
+                <div className="pt-1 text-center text-xs text-gray-600">
+                  Estimated delivery: <span className="font-medium">{shipping.eta}</span>
+                </div>
+              )}
             </div>
           </StickySummary>
         </div>
