@@ -806,24 +806,6 @@
       "qty": 1,
       "size": "XS",
       "color": "Black"
-    },
-    {
-      "id": "71f1",
-      "productId": "1005",
-      "name": "High-Rise Mom Jeans",
-      "price": 1699,
-      "qty": 1,
-      "size": "26",
-      "color": "Light Blue"
-    },
-    {
-      "id": "b105",
-      "productId": "1009",
-      "name": "Boys Graphic Tee",
-      "price": 399,
-      "qty": 1,
-      "size": "3-4Y",
-      "color": "Red"
     }
   ]
 }
