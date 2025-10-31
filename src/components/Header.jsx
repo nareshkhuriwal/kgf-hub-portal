@@ -1,12 +1,16 @@
-// src/components/Header.jsx
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
 
 export default function Header() {
   const { count } = useCart();
+  const { isAuthenticated, user, logout } = useAuth();
+  const nav = useNavigate();
+
   const [bump, setBump] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (count <= 0) return;
@@ -23,6 +27,12 @@ export default function Header() {
     { to: "/products?cat=women", label: "WOMEN" },
     { to: "/products?cat=kids", label: "KIDS" },
   ];
+
+  function onLogout() {
+    logout();
+    setMenuOpen(false);
+    nav("/", { replace: true });
+  }
 
   return (
     <header className="sticky top-0 z-30 border-t border-b bg-white/95 backdrop-blur">
@@ -43,8 +53,25 @@ export default function Header() {
         <div className="hidden md:block">
           <SearchBar />
         </div>
-        <div className="flex items-center gap-5 text-gray-800">
-          <Link to="/account" aria-label="Account" className="hover:opacity-80"><UserIcon className="h-6 w-6" /></Link>
+
+        <div className="relative flex items-center gap-5 text-gray-800">
+          {/* Account */}
+          {!isAuthenticated ? (
+            <Link to="/login" aria-label="Login" className="hover:opacity-80 flex items-center gap-2">
+              <UserIcon className="h-6 w-6" />
+            </Link>
+          ) : (
+            <button
+              aria-label="Account Menu"
+              className="hover:opacity-80 flex items-center gap-2"
+              onClick={() => setMenuOpen((s) => !s)}
+            >
+              <UserIcon className="h-6 w-6" />
+              <span className="hidden sm:block text-sm">{user?.name || user?.email || "Account"}</span>
+            </button>
+          )}
+
+          {/* Cart */}
           <Link to="/cart" aria-label="Cart" className="relative hover:opacity-80">
             <CartIcon className="h-6 w-6" />
             {count > 0 && (
@@ -53,6 +80,18 @@ export default function Header() {
               </span>
             )}
           </Link>
+
+          {/* Account dropdown */}
+          {isAuthenticated && menuOpen && (
+            <div className="absolute right-0 top-10 w-44 rounded-xl border bg-white p-2 shadow-lg">
+              <Link to="/account" className="block rounded-md px-3 py-2 text-sm hover:bg-gray-50" onClick={() => setMenuOpen(false)}>
+                My Account
+              </Link>
+              <button className="w-full rounded-md px-3 py-2 text-left text-sm hover:bg-gray-50" onClick={onLogout}>
+                Logout
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
