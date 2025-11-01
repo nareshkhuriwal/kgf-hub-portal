@@ -15,7 +15,7 @@ import SavedItemRow from "../components/cart/SavedItemRow";
 import { loadSavedIds, saveSavedIds } from "../utils/savedStorage";
 
 export default function Cart() {
-  const { items, subtotal, remove, setQty, loading } = useCart();
+  const { items, subtotal, remove, setQty, loading, clearCart } = useCart();
   const nav = useNavigate();
 
 const [address, setAddress] = useState({

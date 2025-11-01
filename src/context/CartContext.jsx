@@ -1,3 +1,4 @@
+// src/context/CartContext.jsx
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import {
   getCart,
@@ -21,9 +22,13 @@ export function CartProvider({ children }) {
   const toggleCart = () => setOpen((v) => !v);
 
   const refresh = async () => {
-    const data = await getCart();
-    setItems(data);
-    setLoading(false);
+    setLoading(true);
+    try {
+      const data = await getCart();
+      setItems(Array.isArray(data) ? data : []);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -47,7 +52,6 @@ export function CartProvider({ children }) {
     openCart();
   };
 
-
   const remove = async (id) => {
     await deleteCartItem(id);
     setItems((prev) => prev.filter((it) => it.id !== id));
@@ -63,8 +67,22 @@ export function CartProvider({ children }) {
     setItems((prev) => prev.map((it) => (it.id === id ? updated : it)));
   };
 
+  // NEW: clear all items in cart (used after successful checkout)
+  const clearCart = async () => {
+    setLoading(true);
+    try {
+      const ids = items.map((it) => it.id);
+      // Fire deletes in parallel; ignore individual failures so UX isn't blocked
+      await Promise.allSettled(ids.map((id) => deleteCartItem(id)));
+      setItems([]);
+      closeCart(); // optional: hide mini-cart after clearing
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const count = useMemo(() => items.reduce((s, it) => s + (it.qty ?? 1), 0), [items]);
-  const subtotal = useMemo(() => items.reduce((s, it) => s + it.price * (it.qty ?? 1), 0), [items]);
+  const subtotal = useMemo(() => items.reduce((s, it) => s + (it.price * (it.qty ?? 1)), 0), [items]);
 
   const value = {
     items,
@@ -75,6 +93,7 @@ export function CartProvider({ children }) {
     add,
     remove,
     setQty,
+    clearCart,     // ← exposed here
     // drawer controls
     isOpen,
     openCart,
