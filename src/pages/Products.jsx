@@ -340,7 +340,7 @@ export default function Products() {
   const hideGender = lockedGenderRef.current.locked;
 
   return (
-    <section className="space-y-4">
+    <section className="space-y-4 p-4 md:p-6 lg:p-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-semibold">Products</h2>
         <div className="text-sm text-gray-600">

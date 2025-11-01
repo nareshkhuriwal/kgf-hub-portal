@@ -96,7 +96,7 @@ function CategoryTiles() {
   ];
 
   return (
-    <section>
+    <section className="p-2">
       <h2 className="mb-3 text-xl font-semibold">Shop by Category</h2>
       <ul className="grid gap-4 sm:grid-cols-3">
         {tiles.map((t) => (

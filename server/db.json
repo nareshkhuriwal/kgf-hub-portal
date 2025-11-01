@@ -799,24 +799,17 @@
   ],
   "cart": [
     {
-      "id": "5ddf",
-      "productId": "1009",
-      "name": "PRINTED WOOL",
-      "price": 399,
+      "id": "188a",
+      "productId": "1001",
+      "name": "SOFT POCKET OVERSHIRT",
+      "price": 699,
       "qty": 1
     },
     {
-      "id": "2815",
-      "productId": "1015",
-      "name": "Nav kurta",
-      "price": 1399,
-      "qty": 1
-    },
-    {
-      "id": "c6f1",
-      "productId": "1008",
-      "name": "KURTA SET with Dupatta",
-      "price": 2199,
+      "id": "6de8",
+      "productId": "1007",
+      "name": "Rav kurta",
+      "price": 1499,
       "qty": 1
     }
   ]
