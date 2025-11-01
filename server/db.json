@@ -804,6 +804,13 @@
       "name": "SOFT POCKET OVERSHIRT",
       "price": 699,
       "qty": 1
+    },
+    {
+      "id": "6de8",
+      "productId": "1007",
+      "name": "Rav kurta",
+      "price": 1499,
+      "qty": 1
     }
   ]
 }

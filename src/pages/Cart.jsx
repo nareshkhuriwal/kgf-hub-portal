@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { useCart } from "../context/CartContext";
 import AddressBanner from "../components/cart/AddressBanner";
+import AddressModal from "../components/cart/AddressModal";
 import CartItemRow from "../components/cart/CartItemRow";
 import CouponBlock from "../components/cart/CouponBlock";
 import PriceDetailsCard from "../components/cart/PriceDetailsCard";
@@ -17,7 +18,7 @@ export default function Cart() {
   const { items, subtotal, remove, setQty, loading } = useCart();
   const nav = useNavigate();
 
-  const [address] = useState({
+const [address, setAddress] = useState({
     id: "addr1",
     name: "John Doe",
     line1: "123, Main Street",
@@ -25,6 +26,7 @@ export default function Cart() {
     state: "NY",
     pincode: "10001",
   });
+  const [addressOpen, setAddressOpen] = useState(false);
   const [coupon, setCoupon] = useState(null); // { code, discount, lines: [{label,amount}] }
   const [platformFee] = useState(23); // configurable
   const [shipping, setShipping] = useState(null); // { id, label, price, eta, available }
@@ -161,7 +163,7 @@ export default function Cart() {
       <div className="grid gap-6 md:grid-cols-12">
         {/* LEFT: address, items, saved */}
         <div className="md:col-span-7 lg:col-span-8 space-y-4">
-          <AddressBanner address={address} />
+         <AddressBanner address={address} onChange={() => setAddressOpen(true)} />
 
           {/* Active cart items */}
           {cartVisibleItems.length === 0 ? (
@@ -234,6 +236,14 @@ export default function Cart() {
           </StickySummary>
         </div>
       </div>
+       {/* Address Modal */}
+      <AddressModal
+        open={addressOpen}
+        onClose={() => setAddressOpen(false)}
+        initialAddress={address}
+        savedAddresses={[address]} // placeholder list; wire real list later
+        onSelect={(addr) => { setAddress(addr); setShipping(null); }}
+      />
     </section>
   );
 }
